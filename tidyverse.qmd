@@ -118,6 +118,10 @@ ggplot(vector_4, aes(x=means))+
 
 - Repeat part 1 by using the `replicate()` function.
 ```{r}
+replicate(10000,mean(rexp(5, rate = 1))) -> vector_5
+vector_6 <- data.frame(means = vector_5)
+ggplot(vector_6, aes(x=means))+
+  geom_histogram(fill="red")
 ```
 
 ## 2_c:
