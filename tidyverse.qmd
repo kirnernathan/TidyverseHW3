@@ -128,8 +128,16 @@ ggplot(vector_6, aes(x=means))+
 
 - Use a another for loop that will print out plots for sample sizes of 5, 10, and 20 observations (instead of just 5).
 ```{r}
-
-    
+random_vector <-function(x)
+{vector_1 <- vector("integer",10000)
+for (i in 1:length(vector_1))
+  vector_1[i]=mean(rexp(x, rate = 1))
+vector_1 <- data.frame(means = vector_1)
+ggplot(vector_1, aes(x=means))+
+  geom_histogram(fill="red")}
+for (i in 1:4)
+  if (i!=3)
+    print(random_vector(i*5))
 ```
 
 # Problem 3:
