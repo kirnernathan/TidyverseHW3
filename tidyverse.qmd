@@ -243,6 +243,21 @@ while (j<=nrow(months_weeks))
 
 Given a list of mixed date formats, use `map()` and `possibly()` from `purrr` to safely convert them to **Date** format and extract the **month name**.
 
-``` r
+```{r}
 date_strings <- list("2023-06-10", "2022/12/25", "15-Aug-2021", "InvalidDate")
 ```
+
+```{r}
+date_strings2 <-list("2023-06-10", "2022/12/25", parse_date_time("15-Aug-2021", orders = c("ymd", "dmy")), "InvalidDate")
+valid_date <- possibly(as.Date, otherwise = as.Date("2022-01-01"))
+map(date_strings2,valid_date)->safe_dates
+safe_dates
+safe_dates <- list_c(safe_dates)
+safe_dates_parsed <- data.frame(
+  "Date"=safe_dates,
+  "Month_Name"=month(safe_dates, label = TRUE, abbr = FALSE)
+
+)
+safe_dates_parsed
+```
+
