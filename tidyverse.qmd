@@ -181,7 +181,12 @@ output
 
 - **Solution:** coding to calculate the "standard deviation" for each variable
 ```{r}
-
+#| eval: false
+output <- vector("double", ncol(mtcars))
+for (i in seq_along(mtcars)) {            
+  output[[i]] <- sd(mtcars[[i]])      
+}
+output
 ```
 
 # Problem 4:
