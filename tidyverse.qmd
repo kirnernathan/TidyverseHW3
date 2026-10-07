@@ -209,9 +209,10 @@ extracted_dates
 
 Given the following dates, compute the difference in **months** and **weeks** between each consecutive pair.
 
-``` r
+``` {r}
 sample_dates <- c("2018-03-15", "2020-07-20", "2023-01-10", "2025-09-05")
 ```
+
 ```{r}
 months_weeks <- data.frame(
   "full_date"= sample_dates,
