@@ -104,7 +104,13 @@ ggplot(vector_2, aes(x=means))+
 
 - Repeat part 1 by using a `map_*()` function.
 ```{r}
-
+vector("integer",10000) ->vector_3
+random_numbers <-function(x)
+  mean(rexp(5, rate = 1))
+map_dbl(vector_3, random_numbers) ->vector_4
+vector_4 <- data.frame(means = vector_4)
+ggplot(vector_4, aes(x=means))+
+  geom_histogram(fill="red")
 
 ```
 
