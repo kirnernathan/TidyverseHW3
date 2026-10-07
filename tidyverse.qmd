@@ -212,6 +212,32 @@ Given the following dates, compute the difference in **months** and **weeks** be
 ``` r
 sample_dates <- c("2018-03-15", "2020-07-20", "2023-01-10", "2025-09-05")
 ```
+```{r}
+months_weeks <- data.frame(
+  "full_date"= sample_dates,
+  "month"=month(sample_dates),
+  "week"=week(sample_dates),
+  "year"=year(sample_dates)
+)
+months_weeks
+i=1
+j=2
+nrow(months_weeks)
+while (j<=nrow(months_weeks))
+  {total_months=0
+  months_difference=(months_weeks$year[j]-months_weeks$year[i])
+  total_months=months_difference*12
+  inyear_difference=months_weeks$month[j]-months_weeks$month[i]
+  total_months=total_months+inyear_difference
+  total_days=as.Date(months_weeks$full_date[j])-as.Date(months_weeks$full_date[i])
+  total_days=as.numeric(total_days)
+  total_weeks=total_days/7
+  total_weeks=round(total_weeks,3)
+  print(paste("Total Month Difference:",total_months, "Total Week Difference:",total_weeks))
+  i=i+1
+  j=j+1}
+
+```
 
 # Problem 6
 
